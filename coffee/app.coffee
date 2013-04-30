@@ -2,7 +2,7 @@
   @bad = angular.module('badModule', [])
 
   @bad.factory 'Data', ->
-    sayHello = (text) ->
+    sayHello: (text) ->
       "Hello #{text}"
 
 # Main App

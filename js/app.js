@@ -4,9 +4,10 @@
   this.bad = angular.module('badModule', []);
 
   this.bad.factory('Data', function() {
-    var sayHello;
-    return sayHello = function(text) {
-      return "Hello " + text;
+    return {
+      sayHello: function(text) {
+        return "Hello " + text;
+      }
     };
   });
 
