@@ -1,13 +1,14 @@
-# Module
-  @bad = angular.module('badModule', [])
+# Injected Module
+@bad = angular.module("badModule", [])
 
-  @bad.factory 'fromBadFactory', ->
-    sayHello: (text) ->
-      "Hello #{text}"
+# Factory
+@bad.factory "fromBadFactory", ->
+  sayHello: (text) ->
+    "Hello " + text
 
 # Main App
-  @good = angular.module('myApp', ['badModule'])
+@good = angular.module("myApp", ["badModule"])
 
 # Controller
-  @GoodCtrl = ($scope, fromBadFactory) ->
-    $scope.fromBadFactory = fromBadFactory.sayHello('World')
+@GoodCtrl = ($scope, fromBadFactory) ->
+  $scope.fromBadFactory = fromBadFactory.sayHello("World")
