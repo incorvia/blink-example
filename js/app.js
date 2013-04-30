@@ -3,7 +3,7 @@
 
   this.bad = angular.module('badModule', []);
 
-  this.bad.factory('Data', function() {
+  this.bad.factory('fromBadFactory', function() {
     return {
       sayHello: function(text) {
         return "Hello " + text;
@@ -11,10 +11,10 @@
     };
   });
 
-  this.app = angular.module('BlinkApp', ['badModule']);
+  this.good = angular.module('myApp', ['badModule']);
 
-  this.AppController = function($scope, Data) {
-    return $scope.hello = Data.sayHello('World');
+  this.GoodCtrl = function($scope, fromBadFactory) {
+    return $scope.fromBadFactory = fromBadFactory.sayHello('World');
   };
 
 }).call(this);

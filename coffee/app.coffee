@@ -1,13 +1,13 @@
 # Module
   @bad = angular.module('badModule', [])
 
-  @bad.factory 'Data', ->
+  @bad.factory 'fromBadFactory', ->
     sayHello: (text) ->
       "Hello #{text}"
 
 # Main App
-  @app = angular.module('BlinkApp', ['badModule'])
+  @good = angular.module('myApp', ['badModule'])
 
 # Controller
-  @AppController = ($scope, Data) ->
-    $scope.hello = Data.sayHello('World')
+  @GoodCtrl = ($scope, fromBadFactory) ->
+    $scope.fromBadFactory = fromBadFactory.sayHello('World')
