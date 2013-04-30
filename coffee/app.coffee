@@ -1,9 +1,13 @@
-# Main App
-  @App = angular.module('BlinkApp', ['appData'])
+# Module
+  @bad = angular.module('badModule', [])
 
-# Modules
-  appData = angular.module('appData', []).factory 'Data', ->
-    alert "Hello"
+  @bad.factory 'Data', ->
+    sayHello = (text) ->
+      "Hello #{text}"
+
+# Main App
+  @app = angular.module('BlinkApp', ['badModule'])
 
 # Controller
   @AppController = ($scope, Data) ->
+    $scope.hello = Data.sayHello('World')
